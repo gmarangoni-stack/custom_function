@@ -1,19 +1,27 @@
-# custom_function
-This is a custom function I designed to create plots to compare different groups and include my company's logo.
-
-## Custom Function: Utility
+---
+title: "Custom Function"
+author: "Gustavo Marangoni"
+format: pdf
+knitr:
+  opts_chunk:
+    echo: false
+    eval: true
+    prompt: false
+    tidy: false
+    comment: NA
+    message: FALSE
+    warning: FALSE
+    fig.align: 'center'
+---
+# Creating a Custom Function: Utility
 
 The main utility of the function is to categorize the data into groups that
 differentiate the data (species, models, versions, countries, etc) and then 
-plot the different groups into one graph. 
-
-The function will create a plot and distinguish each group in order to better
-compare the different groups in relation to another undetermined variable. 
-
-Also, given that my organization (Council of the Americas) has to regularly 
-create plots, this function will include their name, theme, and logo in the plot.
-
-## Replication Code
+plot the different groups into one graph. The function will create
+a plot and distinguish each group in order to better compare the different groups
+in relation to another undetermined variable. Also, given that my organization 
+(Council of the Americas) has to regularly create plots, this function
+will include their name, theme, and logo in the plot.
 ```{r}
 plot_coa <- function(data, grouping, y_var){
   require(ggplot2)
@@ -72,4 +80,20 @@ coa_colors <- c("#E8540A", "#1A3A5C", "#F5A623", "#2E86AB", "#A8C686")
   
   return(plot)
 }
+```
+
+## Testing the function on different Datasets
+
+```{r}
+#| fig-width: 10
+#| fig-height: 8
+#| message: false
+#| warning: false
+#Dataset: mtcars
+plot_coa(mtcars, cyl, mpg)
+
+#Dataset: palmerpenguins
+library(palmerpenguins)
+plot_coa(penguins, species, bill_length_mm)
+
 ```
