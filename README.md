@@ -13,6 +13,8 @@ compare the different groups in relation to another undetermined variable.
 Also, given that my organization (Council of the Americas) has to regularly 
 create plots, this function will include their name, theme, and logo in the plot.
 
+You may analyze the output included in the index.pdf.
+
 ## Replication Code
 ```{r}
 plot_coa <- function(data, grouping, y_var){
